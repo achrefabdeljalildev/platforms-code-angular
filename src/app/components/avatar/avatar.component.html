@@ -1,0 +1,23 @@
+<div [class]="containerClasses">
+  <ng-container *ngIf="type === 'image'; else placeholderContent">
+    <img
+      [src]="imageSrc"
+      [alt]="imageAlt"
+      class="w-full h-full object-cover pointer-events-none rounded-[inherit]"
+    />
+  </ng-container>
+
+  <ng-template #placeholderContent>
+    <div [class]="contentClasses">
+      <p *ngIf="type === 'initials'" [class]="initialsClasses">{{ text }}</p>
+      <img
+        *ngIf="type === 'icon'"
+        [src]="iconSrc"
+        alt=""
+        class="w-full h-full block"
+      />
+    </div>
+  </ng-template>
+
+  <span *ngIf="border" [class]="ringClasses"></span>
+</div>

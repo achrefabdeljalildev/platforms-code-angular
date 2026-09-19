@@ -1,0 +1,53 @@
+<main class="max-w-5xl mx-auto p-10 font-sans">
+  <h1 class="text-2xl font-semibold mb-1 text-neutral-900">Avatar</h1>
+  <p class="text-neutral-500 mb-8">
+    A visual representation of a user, commonly displayed in profiles, comments,
+    or messaging apps.
+  </p>
+
+  <section class="mb-10" *ngFor="let shape of shapes">
+    <h2 class="text-base font-medium mb-4 capitalize">{{ shape }}</h2>
+
+    <div class="flex items-end gap-5 mb-5">
+      <app-avatar
+        *ngFor="let size of sizes"
+        [size]="size"
+        [shape]="shape"
+        type="initials"
+        text="AB"
+      ></app-avatar>
+    </div>
+
+    <div class="flex items-end gap-5 mb-5">
+      <app-avatar
+        *ngFor="let size of sizes"
+        [size]="size"
+        [shape]="shape"
+        type="icon"
+      ></app-avatar>
+    </div>
+
+    <div class="flex items-end gap-5">
+      <app-avatar
+        *ngFor="let size of sizes"
+        [size]="size"
+        [shape]="shape"
+        type="image"
+      ></app-avatar>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="text-base font-medium mb-4">With ring border</h2>
+    <div class="flex items-end gap-5">
+      <app-avatar
+        *ngFor="let size of sizes"
+        [size]="size"
+        shape="circle"
+        type="initials"
+        text="AB"
+        [border]="true"
+      ></app-avatar>
+    </div>
+  </section>
+</main>
