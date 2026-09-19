@@ -31,6 +31,11 @@ const preview: Preview = {
   },
   decorators: [directionDecorator],
   parameters: {
+    options: {
+      storySort: {
+        order: ['Foundations', 'Components'],
+      },
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
