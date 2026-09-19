@@ -63,7 +63,7 @@ export const AllSizes: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <div style="display:flex; align-items:flex-end; gap:20px;">
+      <div class="flex items-end gap-5">
         <app-avatar [shape]="shape" [type]="type" [text]="text" [border]="border" [size]="24"></app-avatar>
         <app-avatar [shape]="shape" [type]="type" [text]="text" [border]="border" [size]="32"></app-avatar>
         <app-avatar [shape]="shape" [type]="type" [text]="text" [border]="border" [size]="40"></app-avatar>

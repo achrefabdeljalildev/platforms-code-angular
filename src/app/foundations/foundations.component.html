@@ -1,0 +1,157 @@
+<div class="max-w-content mx-auto space-y-9xl p-8xl font-text text-gray-900">
+  <header class="max-w-content">
+    <p
+      class="mb-xl text-body-sm font-semibold uppercase tracking-wide text-primary-600"
+    >
+      Platforms Code
+    </p>
+    <h1 class="text-display-lg font-semibold">Foundations</h1>
+    <p class="mt-lg max-w-3xl text-body-lg text-gray-600">
+      Shared design tokens for color, typography, spacing, grid, radius, and
+      elevation.
+    </p>
+  </header>
+
+  <section class="space-y-4xl">
+    <div>
+      <h2 class="text-display-xs font-semibold">Colors</h2>
+      <p class="mt-md text-body-md text-gray-600">
+        Neutral, brand, accent, and semantic palettes.
+      </p>
+    </div>
+
+    <div class="space-y-3xl">
+      <section *ngFor="let palette of palettes" class="space-y-lg">
+        <h3 class="text-body-lg font-semibold">{{ palette.name }}</h3>
+        <div class="grid grid-cols-12 gap-grid">
+          <div
+            *ngFor="let shade of palette.shades"
+            [class]="
+              'min-h-[72px] rounded-md p-lg shadow-xs ' +
+              shade.className +
+              (shade.light ? ' text-gray-950' : ' text-white')
+            "
+          >
+            <span class="text-body-sm font-semibold">{{ shade.name }}</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <section class="space-y-4xl">
+    <div>
+      <h2 class="text-display-xs font-semibold">Typography</h2>
+      <p class="mt-md text-body-md text-gray-600">
+        IBM Plex Sans Arabic type scales from the design system.
+      </p>
+    </div>
+    <div class="divide-y divide-gray-200 rounded-lg border border-gray-200">
+      <div
+        *ngFor="let style of typography"
+        class="flex items-baseline justify-between gap-xl p-xl"
+      >
+        <span [class]="style[1] + ' font-text'">{{ style[0] }}</span>
+        <span class="shrink-0 text-body-sm text-gray-500">{{ style[2] }}</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid grid-cols-12 gap-grid">
+    <div class="col-span-8 space-y-4xl">
+      <div>
+        <h2 class="text-display-xs font-semibold">Spacing</h2>
+        <p class="mt-md text-body-md text-gray-600">
+          The shared spacing scale used for layout and component rhythm.
+        </p>
+      </div>
+      <div class="space-y-lg">
+        <div *ngFor="let token of spacing" class="flex items-center gap-xl">
+          <span
+            class="w-16 shrink-0 text-body-sm font-semibold text-gray-600"
+            >{{ token[0] }}</span
+          >
+          <div class="h-md bg-primary-500" [style.width]="token[1]"></div>
+          <span class="text-body-sm text-gray-500">{{ token[1] }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-span-4 space-y-4xl">
+      <div>
+        <h2 class="text-display-xs font-semibold">Radius</h2>
+        <p class="mt-md text-body-md text-gray-600">
+          Consistent corner language for surfaces and controls.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-grid">
+        <div
+          *ngFor="let radius of radii"
+          class="flex h-24 items-center justify-center border border-gray-200 bg-gray-50 shadow-xs"
+        >
+          <span
+            [class]="
+              radius[1] +
+              ' flex h-12 w-20 items-center justify-center bg-primary-100 text-body-xs font-semibold text-primary-800'
+            "
+            >{{ radius[0] }}</span
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="space-y-4xl">
+    <div>
+      <h2 class="text-display-xs font-semibold">Grid</h2>
+      <p class="mt-md text-body-md text-gray-600">
+        Desktop content is centered at 1280px inside a 1440px frame with 12
+        columns and 32px gutters.
+      </p>
+    </div>
+    <div
+      class="grid grid-cols-12 gap-grid rounded-lg border border-gray-200 bg-gray-50 p-3xl"
+    >
+      <div
+        *ngFor="let column of [].constructor(12)"
+        class="h-24 rounded-sm bg-primary-100"
+      ></div>
+    </div>
+    <div
+      class="grid grid-cols-3 gap-grid text-center text-body-sm text-gray-600"
+    >
+      <div class="rounded-md bg-gray-100 p-xl">
+        <strong class="block text-body-lg text-gray-950">1280px</strong>content
+        width
+      </div>
+      <div class="rounded-md bg-gray-100 p-xl">
+        <strong class="block text-body-lg text-gray-950">1440px</strong>desktop
+        frame
+      </div>
+      <div class="rounded-md bg-gray-100 p-xl">
+        <strong class="block text-body-lg text-gray-950">32px</strong>grid
+        gutter
+      </div>
+    </div>
+  </section>
+
+  <section class="space-y-4xl">
+    <div>
+      <h2 class="text-display-xs font-semibold">Elevation</h2>
+      <p class="mt-md text-body-md text-gray-600">
+        Seven shadow levels for layering surfaces and interaction.
+      </p>
+    </div>
+    <div class="grid grid-cols-4 gap-grid">
+      <div
+        *ngFor="let shadow of shadows"
+        [class]="
+          'flex h-32 items-center justify-center rounded-lg bg-white text-body-sm font-semibold text-gray-600 ' +
+          shadow
+        "
+      >
+        {{ shadow }}
+      </div>
+    </div>
+  </section>
+</div>

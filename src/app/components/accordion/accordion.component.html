@@ -1,0 +1,24 @@
+<div [class]="itemClasses">
+  <button
+    type="button"
+    [class]="headerClasses"
+    [attr.aria-expanded]="expanded"
+    [attr.aria-controls]="
+      'accordion-panel-' + title | lowercase | slice: 0 : 24
+    "
+    [disabled]="isDisabled"
+    (click)="toggle()"
+  >
+    <span class="font-text font-semibold">{{ title }}</span>
+    <img [class]="iconClasses" [src]="iconSrc" alt="" aria-hidden="true" />
+  </button>
+
+  <div
+    *ngIf="expanded"
+    [id]="'accordion-panel-' + title | lowercase | slice: 0 : 24"
+    role="region"
+    [class]="panelClasses"
+  >
+    <ng-content></ng-content>
+  </div>
+</div>
