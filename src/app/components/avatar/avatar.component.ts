@@ -27,13 +27,13 @@ const CIRCLE_RADIUS_CLASSES: Record<AvatarSize, string> = {
 };
 
 const SQUARE_RADIUS_CLASSES: Record<AvatarSize, string> = {
-  24: 'rounded-[4px]',
-  32: 'rounded-[4px]',
-  40: 'rounded-[4px]',
-  48: 'rounded-[4px]',
-  64: 'rounded-[4px]',
-  80: 'rounded-[4px]',
-  120: 'rounded-[8px]',
+  24: 'rounded-sm',
+  32: 'rounded-sm',
+  40: 'rounded-sm',
+  48: 'rounded-sm',
+  64: 'rounded-sm',
+  80: 'rounded-sm',
+  120: 'rounded-md',
 };
 
 const CONTENT_INSET_CLASSES: Record<AvatarSize, string> = {
@@ -47,13 +47,13 @@ const CONTENT_INSET_CLASSES: Record<AvatarSize, string> = {
 };
 
 const INITIALS_CLASSES: Record<AvatarSize, string> = {
-  24: 'text-[10px] leading-[14px] font-bold',
-  32: 'text-[12px] leading-[18px] font-semibold',
-  40: 'text-[14px] leading-[20px] font-semibold',
-  48: 'text-[16px] leading-[24px] font-medium',
-  64: 'text-[20px] leading-[30px] font-medium',
-  80: 'text-[30px] leading-[38px] font-normal',
-  120: 'text-[36px] leading-[44px] font-normal tracking-[-0.72px]',
+  24: 'text-body-2xs font-bold',
+  32: 'text-body-xs font-semibold',
+  40: 'text-body-sm font-semibold',
+  48: 'text-body-md font-medium',
+  64: 'text-body-xl font-medium',
+  80: 'text-display-sm font-normal',
+  120: 'text-display-md font-normal',
 };
 
 const RING_BORDER_CLASSES: Record<AvatarSize, string> = {
@@ -92,7 +92,7 @@ export class AvatarComponent {
       this.shape === 'square'
         ? SQUARE_RADIUS_CLASSES[this.size]
         : CIRCLE_RADIUS_CLASSES[this.size];
-    const bg = this.type === 'image' ? 'bg-white' : 'bg-avatar-bg';
+    const bg = this.type === 'image' ? 'bg-white' : 'bg-gray-100';
     return `relative inline-flex flex-shrink-0 box-border border-solid border-white ${BOX_CLASSES[this.size]} ${radius} ${bg}`;
   }
 
@@ -101,10 +101,10 @@ export class AvatarComponent {
   }
 
   get initialsClasses(): string {
-    return `w-full m-0 text-center break-words text-avatar-text font-plex-arabic ${INITIALS_CLASSES[this.size]}`;
+    return `w-full m-0 text-center break-words text-gray-950 font-text ${INITIALS_CLASSES[this.size]}`;
   }
 
   get ringClasses(): string {
-    return `absolute inset-0 rounded-[inherit] border-black/20 border-solid pointer-events-none ${RING_BORDER_CLASSES[this.size]}`;
+    return `absolute inset-0 rounded-[inherit] border-gray-950/20 border-solid pointer-events-none ${RING_BORDER_CLASSES[this.size]}`;
   }
 }
