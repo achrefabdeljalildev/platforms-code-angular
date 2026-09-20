@@ -1,0 +1,15 @@
+{
+  "$schema": "../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../dist/platforms-ui",
+  "lib": {
+    "entryFile": "public-api.ts"
+  },
+  "assets": [
+    "styles.css",
+    {
+      "glob": "**/*",
+      "input": ".package-assets",
+      "output": "assets"
+    }
+  ]
+}

@@ -40,6 +40,10 @@ testem.log
 # Storybook
 /storybook-static
 src/styles.css
+src/.package-assets/
+examples/local-consumer/node_modules/
+examples/local-consumer/dist/
+examples/local-consumer/.angular/
 
 # System files
 .DS_Store

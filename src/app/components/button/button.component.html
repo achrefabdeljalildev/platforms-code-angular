@@ -1,0 +1,78 @@
+<button
+  [type]="type"
+  [class]="buttonClasses"
+  [class.on-color]="onColor"
+  [class.filled]="variant === 'primary' || variant === 'neutral'"
+  [disabled]="disabled"
+  [attr.aria-label]="ariaLabel || (iconOnly ? label : null)"
+  [attr.title]="iconOnly ? ariaLabel || label : null"
+  [attr.aria-pressed]="menu ? null : selected"
+  [attr.aria-haspopup]="menu ? 'menu' : null"
+  [attr.aria-expanded]="menu ? expanded : null"
+  [attr.aria-controls]="menu ? controls : null"
+  [attr.data-selected]="menu ? expanded : selected"
+  (click)="activate($event)"
+  (keydown)="onKeydown($event)"
+>
+  @if (leadingIcon || iconOnly) {
+    <span
+      class="icon-slot"
+      [style.width.px]="iconSize"
+      [style.height.px]="iconSize"
+      aria-hidden="true"
+    >
+      @if (leadingIconSrc) {
+        <img [src]="leadingIconSrc" alt="" />
+      } @else {
+        <span
+          class="asset"
+          [class.arrow]="!menu"
+          [style.width.px]="iconSize * (menu ? 0.8125 : 0.4792)"
+          [style.height.px]="iconSize * (menu ? 0.8542 : 0.7292)"
+          [style.mask-image]="'url(' + leadingAsset + ')'"
+        >
+        </span>
+      }
+    </span>
+  }
+  @if (!iconOnly) {
+    <span class="button-label">{{ label }}</span>
+  }
+  @if (menu) {
+    <span
+      class="icon-slot"
+      [style.width.px]="iconSize - 4"
+      [style.height.px]="iconSize - 4"
+      aria-hidden="true"
+    >
+      <span
+        class="asset"
+        [style.width.px]="(iconSize - 4) * 0.5625"
+        [style.height.px]="(iconSize - 4) * 0.3125"
+        [style.mask-image]="
+          'url(assets/button/chevron-' + (iconSize - 4) + '.svg)'
+        "
+      ></span>
+    </span>
+  } @else if (trailingIcon && !iconOnly) {
+    <span
+      class="icon-slot"
+      [style.width.px]="iconSize"
+      [style.height.px]="iconSize"
+      aria-hidden="true"
+    >
+      @if (trailingIconSrc) {
+        <img [src]="trailingIconSrc" alt="" />
+      } @else {
+        <span
+          class="asset"
+          [style.width.px]="iconSize * 0.8958"
+          [style.height.px]="iconSize * 0.8958"
+          [style.mask-image]="
+            'url(assets/button/trailing-' + iconSize + '.svg)'
+          "
+        ></span>
+      }
+    </span>
+  }
+</button>

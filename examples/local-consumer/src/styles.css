@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  background: #fcfcfd;
+  color: #161616;
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+}
+
+main {
+  max-width: 960px;
+  margin: auto;
+  padding: 32px 24px;
+}
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 16px;
+}
+h1 {
+  font-size: 28px;
+  font-weight: 600;
+}
+h2 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+section {
+  border-top: 1px solid #d2d6db;
+  margin-top: 24px;
+  padding-top: 20px;
+}
+.package-version {
+  color: #4d5761;
+  font-size: 14px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+output {
+  display: block;
+  margin-top: 16px;
+}
+.sizes,
+.rtl {
+  margin-top: 20px;
+}
+.accordion-section {
+  overflow-x: auto;
+}
